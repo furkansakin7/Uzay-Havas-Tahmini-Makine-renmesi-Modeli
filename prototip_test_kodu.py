@@ -29,10 +29,8 @@ import os
 import serial
 commPort = 'COM3'
 ser = serial.Serial(commPort, baudrate=9600, timeout=1)
-# Get the desktop directory
 desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
 
-# Change the current working directory to the desktop
 os.chdir(desktop_path)
 df = pd.read_csv('data.csv')
 df2 = pd.read_csv('data (2).csv')
@@ -211,7 +209,6 @@ for i in range(0,100):
         'dst': [dst]
     })
     
-    # Make predictions using the trained model
     predicted_kp = make_predictions(new_input_data)
     #print(predicted_kp)
     predicted_kp_r = ((predicted_kp*3).round())/3
